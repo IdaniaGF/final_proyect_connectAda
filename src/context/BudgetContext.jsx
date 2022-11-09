@@ -5,7 +5,7 @@ export const BudgetContext = createContext();
 
 export function BudgetContextProvider(props) {
   const [budget, setBudget] = useState("");
-  const [remaining, setRemaining] = useState(budget);
+  const [remaining, setRemaining] = useState();
   const [expense, setExpense] = useState({});
   const [expenses, setExpenses] = useState([]);
 
@@ -19,6 +19,7 @@ export function BudgetContextProvider(props) {
   useEffect(() => {
     localStorage.setItem("budget", JSON.stringify(budget));
     setBudget(budget);
+    calcRemaining();
   }, [budget]);
 
   useEffect(() => {

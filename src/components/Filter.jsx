@@ -4,7 +4,7 @@ import { BudgetContext } from "../context/BudgetContext";
 
 const SelectInput = ({ label, ...props }) => {
   return (
-    <>
+    <div className="m-2">
       <label htmlFor={props.id || props.name}>{label}</label>
       <select {...props}>
         <option value="-">-Selecciona-</option>
@@ -16,7 +16,7 @@ const SelectInput = ({ label, ...props }) => {
         <option value="health">Health</option>
         <option value="suscription">Suscriptions</option>
       </select>
-    </>
+    </div>
   );
 };
 
@@ -46,7 +46,7 @@ function Filter() {
     >
       {({handleChange, handleSubmit, values}) => (
         <SelectInput
-          label="Filter"
+          label="Filter: "
           name="categoryFilter"
           onChange={(e) => {
             handleChange(e)

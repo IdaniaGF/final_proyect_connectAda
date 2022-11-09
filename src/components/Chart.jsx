@@ -14,8 +14,8 @@ function ChartComponent() {
 
   const options = {
     slices: {
-      0: { color: "#83F0AC", textStyle: { color: "#000", fontSize: 16 } },
-      1: { color: "#D9DFDD", textStyle: { color: "transparent" } },
+      0: { color: "#F7C9C1", textStyle: { color: "transparent", fontSize: 16 } },
+      1: { color: "#A9C5F8", textStyle: { color: "transparent" } },
     },
     legend: "none",
     width: "100%",
@@ -32,7 +32,7 @@ function ChartComponent() {
       height: "75%",
     },
   };
-
+  /*
   const chartEvents = [
     {
       eventName: "ready",
@@ -41,7 +41,7 @@ function ChartComponent() {
       },
     },
   ];
-
+  */
   useEffect(() => {
     if (budget / 4 > remaining) {
       options.slices[0].color = "#FA4141";
@@ -68,7 +68,6 @@ function ChartComponent() {
   return (
     <div id="capture">
       <Chart
-        ref={Chart}
         key={remaining}
         chartType="PieChart"
         options={options}
@@ -77,16 +76,8 @@ function ChartComponent() {
           ["Spent", spent],
           ["Remaning", remaining || 1],
         ]}
-        chartEvents={chartEvents}
+      //  chartEvents={chartEvents}
       />
-      <button
-        type="button"
-        onClick={() => {
-          exportChart(chartRef);
-        }}
-      >
-        Export chart
-      </button>
     </div>
   );
 }
